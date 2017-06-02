@@ -7,6 +7,6 @@ public interface TodoService {
 	Todo getTodoById(long id);
 	List<Todo> getAllTodos();
 	void saveTodo(Todo todo);
-	void updateTodo(Todo todo);
 	void deleteTodo(Long id);
+	List<Todo> getFinishedTodos();
 }

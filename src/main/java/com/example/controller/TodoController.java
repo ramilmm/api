@@ -24,6 +24,9 @@ public class TodoController {
 	@PostMapping("/api/todo")
 	public void saveTodo(@Valid @RequestBody Todo todo) { todoService.saveTodo(todo); }
 
+	@PutMapping("/api/todo")
+	public void updateTodo(@Valid @RequestBody Todo todo) { todoService.saveTodo(todo);}
+
     @GetMapping("/api/todo/{id}")
 	@ResponseBody
     public Todo getTodo(@PathVariable("id") long id) {
@@ -32,6 +35,11 @@ public class TodoController {
 
 	@DeleteMapping("/api/todo/{id}")
 	public void deleteById(@PathVariable("id") Long id) { todoService.deleteTodo(id); }
+
+	@GetMapping("/api/todo/finished")
+	public List<Todo> getAllFinishedTodos() {
+    	return todoService.getFinishedTodos();
+	}
 }
 
 
